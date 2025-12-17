@@ -1,5 +1,8 @@
 bin
 
+# macOS
+.DS_Store
+
 # Devenv
 .envrc
 .direnv

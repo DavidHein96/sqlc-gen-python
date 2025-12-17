@@ -272,5 +272,9 @@ func stdImports(uses func(name string) bool) map[string]importSpec {
 	if uses("Any") {
 		std["typing.Any"] = importSpec{Module: "typing", Name: "Any"}
 	}
+	if uses("NDArray[numpy.float32]") {
+		std["numpy"] = importSpec{Module: "numpy"}
+		std["numpy.typing.NDArray"] = importSpec{Module: "numpy.typing", Name: "NDArray"}
+	}
 	return std
 }

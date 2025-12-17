@@ -1,0 +1,17 @@
+version: '2'
+plugins:
+- name: py
+  wasm:
+    url: file://../../../../bin/sqlc-gen-python.wasm
+    sha256: "839af1f07c31644548192fc095569e62f1511d72c1c30c1a958ddc9c9429edbc"
+sql:
+- schema: schema.sql
+  queries: query.sql
+  engine: postgresql
+  codegen:
+  - plugin: py
+    out: python
+    options:
+      package: python
+      emit_sync_querier: true
+      emit_async_querier: true
